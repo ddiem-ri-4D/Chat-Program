@@ -1,6 +1,8 @@
 package Main;
 
+import GUI.LoginGUI;
 import GUI.RegisterGUI;
+import Handler.Server;
 
 import java.io.IOException;
 
@@ -11,6 +13,8 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args )throws IOException {
-        RegisterGUI r =  new RegisterGUI();
+        LoginGUI r =  new LoginGUI();
+        //RegisterGUI r =  new RegisterGUI();
+        Server.init();
     }
 }
