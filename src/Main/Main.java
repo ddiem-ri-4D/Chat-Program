@@ -12,9 +12,8 @@ import java.io.IOException;
  * @date 5/16/2021 2:27 PM
  */
 public class Main {
-    public static void main(String[] args )throws IOException {
-        LoginGUI r =  new LoginGUI();
-        //RegisterGUI r =  new RegisterGUI();
+    public static void main(String[] args) throws IOException {
+        LoginGUI r = new LoginGUI();
         Server.init();
     }
 }

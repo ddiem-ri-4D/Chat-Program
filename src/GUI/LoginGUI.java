@@ -21,7 +21,7 @@ public class LoginGUI extends JFrame {
     private JTextField userField;
     private JPasswordField passField;
 
-    public LoginGUI(){
+    public LoginGUI() {
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setBounds(100, 100, 686, 394);
@@ -80,30 +80,22 @@ public class LoginGUI extends JFrame {
                 String username = userField.getText();
                 String password = new String(passField.getPassword());
                 passField.setText("");
-                if (Server.users.size()>0)
-                {
+                if (Server.users.size() > 0) {
                     boolean outFlag = false;
-                    for (Vector<String> user:Server.users)
-                    {
-                        if (user.get(0).equals(username)&&user.get(1).equals(password))
-                        {
+                    for (Vector<String> user : Server.users) {
+                        if (user.get(0).equals(username) && user.get(1).equals(password)) {
                             outFlag = true;
                             boolean flag = true;
-                            for (Client c:Server.active)
-                            {
-                                if (c.getUsername().equals(username))
-                                {
+                            for (Client c : Server.active) {
+                                if (c.getUsername().equals(username)) {
                                     flag = false;
                                     break;
                                 }
                             }
-                            if (!flag)
-                            {
+                            if (!flag) {
                                 JOptionPane.showMessageDialog(null, "You need to login account!");
                                 break;
-                            }
-                            else
-                            {
+                            } else {
                                 userField.setText("");
                                 EventQueue.invokeLater(new Runnable() {
                                     public void run() {

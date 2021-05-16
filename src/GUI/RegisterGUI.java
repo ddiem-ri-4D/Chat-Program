@@ -24,7 +24,7 @@ public class RegisterGUI extends JFrame implements FocusListener {
     private JPasswordField passField;
     private JPasswordField rePassField;
 
-    public RegisterGUI(){
+    public RegisterGUI() {
         setVisible(true);
         setResizable(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -66,7 +66,7 @@ public class RegisterGUI extends JFrame implements FocusListener {
         contentPane.add(userField);
         userField.setColumns(10);
 
-        passField =  new JPasswordField();
+        passField = new JPasswordField();
         passField.setFont(new Font("Arial", Font.PLAIN, 14));
         passField.setForeground(Color.decode("#192a56"));
         passField.setBorder(BorderFactory.createLineBorder(Color.decode("#192a56")));
@@ -83,7 +83,7 @@ public class RegisterGUI extends JFrame implements FocusListener {
         rePassField.setForeground(Color.decode("#192a56"));
         rePassField.setBorder(BorderFactory.createLineBorder(Color.decode("#192a56")));
         rePassField.setColumns(10);
-       //rePassField.setBounds(130, 202, 330, 32);
+        //rePassField.setBounds(130, 202, 330, 32);
         rePassField.setBounds(165, 229, 474, 40);
         rePassField.addFocusListener(this);
         contentPane.add(rePassField);
@@ -98,36 +98,32 @@ public class RegisterGUI extends JFrame implements FocusListener {
                 String username = userField.getText();
                 String password = new String(passField.getPassword());
                 String rePass = new String(rePassField.getPassword());
-                CharSequence[] special = {",",".",";",":","\'","\"","/","!","@","#","$","%","^","&","*",
-                        "(",")","<",">","[","]","{","}"," "};
+                CharSequence[] special = {",", ".", ";", ":", "\'", "\"", "/", "!", "@", "#", "$", "%", "^", "&", "*",
+                        "(", ")", "<", ">", "[", "]", "{", "}", " "};
                 boolean f = true;
-                for (int i = 0; i<special.length; i++){
-                    if(username.contains(special[i])){
+                for (int i = 0; i < special.length; i++) {
+                    if (username.contains(special[i])) {
                         f = false;
                         break;
                     }
                 }
-                if(f == false){
+                if (f == false) {
                     JOptionPane.showMessageDialog(null, "Username cannot contain special characters!");
-                }
-                else if(!password.equals(rePass)){
+                } else if (!password.equals(rePass)) {
                     JOptionPane.showMessageDialog(null, "Password and confirm password does not match!");
-                }
-                else if(username.isEmpty() || password.isEmpty() || rePass.isEmpty()){
+                } else if (username.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Field cannot be left blank!");
-                }
-                else{
+                } else {
                     boolean flag = true;
-                    for(Vector<String> user: Server.users){
-                        if(user.get(0).equals(username)){
+                    for (Vector<String> user : Server.users) {
+                        if (user.get(0).equals(username)) {
                             flag = false;
                             break;
                         }
                     }
-                    if(!flag){
+                    if (!flag) {
                         JOptionPane.showMessageDialog(null, "Username is a Duplicate of Another User Account!");
-                    }
-                    else{
+                    } else {
                         Server.addUser(username, password);
                         dispose();
                         JOptionPane.showMessageDialog(null, "Your Account has been Successfully Registered!");
@@ -161,10 +157,8 @@ public class RegisterGUI extends JFrame implements FocusListener {
 
     @Override
     public void focusGained(FocusEvent e) {
-        for (Component c:getContentPane().getComponents())
-        {
-            if (c instanceof JTextField )
-            {
+        for (Component c : getContentPane().getComponents()) {
+            if (c instanceof JTextField) {
                 ((JTextField) c).setCaretColor(Color.BLACK);
             }
         }
