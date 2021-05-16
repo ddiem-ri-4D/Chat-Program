@@ -39,12 +39,12 @@ public class RegisterGUI extends JFrame implements FocusListener {
         contentPane.setLayout(null);
 
         JLabel headerLabel = new JLabel();
-        headerLabel.setText("Register New Account");
+        headerLabel.setText("REGISTER NEW ACCOUNT");
         headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
         headerLabel.setFont(new Font("Arial", Font.BOLD, 23));
         headerLabel.setForeground(Color.decode("#192a56"));
         //headerLabel.setBounds(159, 30, 254, 31);
-        headerLabel.setBounds(219, 33, 254, 31);
+        headerLabel.setBounds(179, 33, 324, 31);
         contentPane.add(headerLabel);
 
         JLabel userLabel = new JLabel("Username");
@@ -92,7 +92,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         execButton.setForeground(Color.WHITE);
         execButton.setBackground(Color.decode("#192a56"));
         execButton.setText("Register");
-
         execButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,9 +135,8 @@ public class RegisterGUI extends JFrame implements FocusListener {
                 }
             }
         });
-
         execButton.setFont(new Font("Arial", Font.BOLD, 14));
-        execButton.setBounds(295, 301, 108, 31);
+        execButton.setBounds(285, 301, 108, 31);
         contentPane.add(execButton);
 
 
