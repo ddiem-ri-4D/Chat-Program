@@ -43,4 +43,8 @@ public class Message implements Serializable {
     public String getMessage() {
         return message;
     }
+
+    public byte[] getData() {
+        return data;
+    }
 }
