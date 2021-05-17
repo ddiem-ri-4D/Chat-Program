@@ -38,7 +38,7 @@ public class Client extends Thread {
             try {
                 Message received = (Message) ois.readObject();
                 switch (received.getType()) {
-                    case "Add Group": {
+                    case "addGroup": {
                         boolean outFlag = true;
                         Vector<String> users = received.getUsers();
                         for (int i = 0; i < users.size(); i++) {
@@ -50,7 +50,7 @@ public class Client extends Thread {
                                 }
                             }
                             if (flag == false) {
-                                oos.writeObject(new Message("Add Group Failed", null, null, null, null));
+                                oos.writeObject(new Message("addGroupFailed", null, null, null, null));
                                 outFlag = false;
                                 break;
                             }
@@ -74,10 +74,10 @@ public class Client extends Thread {
                                         groupName.delete(groupName.length()-2, groupName.length());
                                         if (!c.username.equals(received.getFrom()))
                                             c.oos.writeObject
-                                                    (new Message("Add Group", groupName.toString(), "no", null, null));
+                                                    (new Message("addGroup", groupName.toString(), "no", null, null));
                                         else
                                             c.oos.writeObject
-                                                    (new Message("Add Group", groupName.toString(), "yes", null, null));
+                                                    (new Message("addGroup", groupName.toString(), "yes", null, null));
                                     }
                                 }
                             }
