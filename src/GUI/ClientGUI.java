@@ -49,7 +49,7 @@ public class ClientGUI extends JFrame {
 
     public ClientGUI(String username) throws UnknownHostException, IOException {
         init();
-        setResizable(false);
+        setResizable(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         //setSize(1000, 530);
@@ -83,15 +83,15 @@ public class ClientGUI extends JFrame {
 
         contentPane = new JPanel();
         contentPane.setLayout(null);
-        contentPane.setBackground(new Color(255, 118, 117));
+        contentPane.setBackground(Color.decode("#74b9ff"));
         contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
         setContentPane(contentPane);
 
         JPanel headerPanel = new JPanel();
         //headerPanel.setBounds(0, 0, 994, 45);
         headerPanel.setBounds(0, 0, 1294, 45);
-        //headerPanel.setBackground(new Color(25, 42, 86));
-        headerPanel.setBackground(new Color(255, 118, 117));
+        headerPanel.setBackground(Color.decode("#74b9ff"));
+        //headerPanel.setBackground(new Color(255, 118, 117));
         contentPane.add(headerPanel);
         headerPanel.setLayout(null);
 
@@ -136,8 +136,8 @@ public class ClientGUI extends JFrame {
         onlinePanel.setLayout(new BorderLayout(0, 0));
 
         outPanel = new JPanel();
-        //outPanel.setBackground(new Color(25,42,86));
-        outPanel.setBackground(new Color(255, 118, 117));
+        outPanel.setBackground(Color.decode("#74b9ff"));
+        //outPanel.setBackground(new Color(255, 118, 117));
         //outPanel.setBounds(268, 45, 746, 656);
         outPanel.setBounds(248, 45, 1046, 656);
         contentPane.add(outPanel);
@@ -145,7 +145,8 @@ public class ClientGUI extends JFrame {
 
         chatPanel = new JPanel();
         chatPanel.setBounds(32, 0, 993, 550);
-        chatPanel.setBackground(new Color(255, 118, 117));
+        //chatPanel.setBackground(new Color(255, 118, 117));
+        chatPanel.setBackground(Color.decode("#74b9ff"));
         chatPanel.setLayout(null);
         //outPanel.add(chatPanel);
 
