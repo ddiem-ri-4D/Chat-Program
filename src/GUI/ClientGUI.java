@@ -131,7 +131,7 @@ public class ClientGUI extends JFrame {
         headerPanel.add(groupButton);
 
         onlinePanel = new JPanel();
-        onlinePanel.setBounds(0, 45, 248, 656);
+        onlinePanel.setBounds(0, 45, 248, 646);
         contentPane.add(onlinePanel);
         onlinePanel.setLayout(new BorderLayout(0, 0));
 
@@ -153,7 +153,7 @@ public class ClientGUI extends JFrame {
         textArea = new JTextArea();
         textArea.setForeground(new Color(25, 42, 86));
         textArea.setBackground(new Color(255, 251, 251));
-        textArea.setBounds(32, 572, 865, 73);
+        textArea.setBounds(32, 572, 865, 63);
         textArea.setFont(new Font("Arial", Font.BOLD, 17));
 
         textArea.addKeyListener(new KeyAdapter() {
@@ -226,7 +226,7 @@ public class ClientGUI extends JFrame {
         sendButton.setForeground(Color.WHITE);
         sendButton.setFont(new Font("Arial", Font.BOLD, 14));
         //sendButton.setBounds(607, 405, 88, 30);
-        sendButton.setBounds(907, 605, 118, 40);
+        sendButton.setBounds(907, 605, 118, 30);
 
         fileButton = new JButton("Send File");
         fileButton.setBackground(new Color(25, 42, 86));

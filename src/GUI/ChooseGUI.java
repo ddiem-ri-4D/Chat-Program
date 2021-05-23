@@ -94,5 +94,6 @@ class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<Str
 
         setText(value == null ? "" : value.toString());
 
-        return this;    }
+        return this;
+    }
 }
