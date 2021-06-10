@@ -26,9 +26,8 @@ public class RegisterGUI extends JFrame implements FocusListener {
 
     public RegisterGUI() {
         setVisible(true);
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //setBounds(90, 90, 581, 369);
         setBounds(100, 100, 686, 394);
         setLocationRelativeTo(null);
         setTitle("New User Account Registration");
@@ -43,7 +42,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
         headerLabel.setFont(new Font("Arial", Font.BOLD, 23));
         headerLabel.setForeground(Color.decode("#192a56"));
-        //headerLabel.setBounds(159, 30, 254, 31);
         headerLabel.setBounds(179, 33, 324, 31);
         contentPane.add(headerLabel);
 
@@ -51,7 +49,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         userLabel.setHorizontalAlignment(SwingConstants.CENTER);
         userLabel.setFont(new Font("Arial", Font.BOLD, 14));
         userLabel.setForeground(Color.decode("#192a56"));
-        //userLabel.setBounds(0, 82, 164, 31);
         userLabel.setBounds(0, 92, 164, 31);
         contentPane.add(userLabel);
 
@@ -60,7 +57,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         userField.setForeground(Color.decode("#192a56"));
         userField.setBorder(BorderFactory.createLineBorder(Color.decode("#192a56")));
         userField.setBackground(new Color(255, 251, 251));
-        //userField.setBounds(130, 82, 330, 32);
         userField.setBounds(165, 89, 474, 40);
         userField.addFocusListener(this);
         contentPane.add(userField);
@@ -72,7 +68,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         passField.setBorder(BorderFactory.createLineBorder(Color.decode("#192a56")));
         passField.setBackground(new Color(255, 251, 251));
         passField.setColumns(10);
-        //passField.setBounds(130, 142, 330, 32);
         passField.setBounds(165, 159, 474, 40);
         passField.addFocusListener(this);
         contentPane.add(passField);
@@ -83,7 +78,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         rePassField.setForeground(Color.decode("#192a56"));
         rePassField.setBorder(BorderFactory.createLineBorder(Color.decode("#192a56")));
         rePassField.setColumns(10);
-        //rePassField.setBounds(130, 202, 330, 32);
         rePassField.setBounds(165, 229, 474, 40);
         rePassField.addFocusListener(this);
         contentPane.add(rePassField);
@@ -126,7 +120,7 @@ public class RegisterGUI extends JFrame implements FocusListener {
                     } else {
                         Server.addUser(username, password);
                         dispose();
-                        JOptionPane.showMessageDialog(null, "Your Account has been Successfully Registered!");
+                        JOptionPane.showMessageDialog(null, "Account registered successfully!");
                     }
                 }
             }
@@ -141,7 +135,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         passLabel.setForeground(Color.decode("#192a56"));
         passLabel.setHorizontalAlignment(SwingConstants.CENTER);
         passLabel.setFont(new Font("Arial", Font.BOLD, 14));
-        //passLabel.setBounds(0, 162, 164, 31);
         passLabel.setBounds(0, 162, 164, 31);
         contentPane.add(passLabel);
 
@@ -150,7 +143,6 @@ public class RegisterGUI extends JFrame implements FocusListener {
         rePassLabel.setForeground(Color.decode("#192a56"));
         rePassLabel.setHorizontalAlignment(SwingConstants.CENTER);
         rePassLabel.setFont(new Font("Arial", Font.BOLD, 14));
-        //rePassLabel.setBounds(0, 232, 164, 31);
         rePassLabel.setBounds(0, 232, 164, 31);
         contentPane.add(rePassLabel);
     }
@@ -166,6 +158,5 @@ public class RegisterGUI extends JFrame implements FocusListener {
 
     @Override
     public void focusLost(FocusEvent e) {
-
     }
 }

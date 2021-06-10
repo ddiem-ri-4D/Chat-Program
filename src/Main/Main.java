@@ -15,7 +15,6 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         LoginGUI r = new LoginGUI();
-        //ClientGUI c = new ClientGUI();
         Server.init();
     }
 }

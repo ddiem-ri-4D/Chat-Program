@@ -22,7 +22,7 @@ public class LoginGUI extends JFrame {
     private JPasswordField passField;
 
     public LoginGUI() {
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setBounds(100, 100, 686, 394);
         setBounds(80, 80, 750, 440);
@@ -121,7 +121,6 @@ public class LoginGUI extends JFrame {
         execButton.setForeground(Color.WHITE);
         execButton.setHorizontalAlignment(SwingConstants.CENTER);
         execButton.setFont(new Font("Arial", Font.BOLD, 16));
-        //execButton.setForeground(Color.decode("#192a56"));
         execButton.setBackground(Color.decode("#192a56"));
         execButton.setBounds(295, 257, 150, 36);
         contentPane.add(execButton);

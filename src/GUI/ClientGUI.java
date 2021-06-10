@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.Socket;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -40,6 +41,9 @@ public class ClientGUI extends JFrame {
     private String user;
     private Vector<ChatPanel> chats;
 
+    private final URL sendIcon = getClass().getClassLoader().getResource("icons/send.png");
+    private final URL sendfileIcon = getClass().getClassLoader().getResource("icons/sendfile.png");
+
     public void init() throws UnknownHostException, IOException {
         this.s = new Socket("localhost", serverPort);
         this.oos = new ObjectOutputStream(s.getOutputStream());
@@ -49,11 +53,11 @@ public class ClientGUI extends JFrame {
 
     public ClientGUI(String username) throws UnknownHostException, IOException {
         init();
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         //setSize(1000, 530);
-        setSize(1300, 730);
+        setSize(1300 - 650, 730);
         setLocationRelativeTo(null);
         user = new String(username);
         r = new ReadThread();
@@ -64,7 +68,7 @@ public class ClientGUI extends JFrame {
         list.setBackground(new Color(255, 251, 251));
         oos.writeObject(new Message("update", "setName", username, null, null));
         oos.writeObject(new Message("update", "add", username, null, null));
-        setTitle("Hello " + username);
+        setTitle("Hello " + username + "!");
         addWindowListener(new WindowAdapter() {
             @SuppressWarnings("deprecation")
             @Override
@@ -88,10 +92,8 @@ public class ClientGUI extends JFrame {
         setContentPane(contentPane);
 
         JPanel headerPanel = new JPanel();
-        //headerPanel.setBounds(0, 0, 994, 45);
-        headerPanel.setBounds(0, 0, 1294, 45);
+        headerPanel.setBounds(0, 0, 1294 - 650, 45);
         headerPanel.setBackground(Color.decode("#74b9ff"));
-        //headerPanel.setBackground(new Color(255, 118, 117));
         contentPane.add(headerPanel);
         headerPanel.setLayout(null);
 
@@ -99,10 +101,10 @@ public class ClientGUI extends JFrame {
         lblNewLabel.setFont(new Font("Arial", Font.BOLD, 16));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setForeground(Color.WHITE);
-        lblNewLabel.setBounds(10, 11, 235, 23);
+        lblNewLabel.setBounds(10, 11, 235 - 82, 23);
         headerPanel.add(lblNewLabel);
 
-        JButton groupButton = new JButton(" Create group chat");
+        JButton groupButton = new JButton("Chat Group");
         groupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,33 +129,29 @@ public class ClientGUI extends JFrame {
         groupButton.setForeground(Color.WHITE);
         groupButton.setFont(new Font("Arial", Font.BOLD, 14));
         //groupButton.setBounds(700, 5, 200, 35);
-        groupButton.setBounds(1047, 5, 237, 33);
+        groupButton.setBounds(1047- 650 + 100, 5, 237 - 100, 33);
         headerPanel.add(groupButton);
 
         onlinePanel = new JPanel();
-        onlinePanel.setBounds(0, 45, 248, 646);
+        onlinePanel.setBounds(0, 45, 248 - 82, 646);
         contentPane.add(onlinePanel);
         onlinePanel.setLayout(new BorderLayout(0, 0));
 
         outPanel = new JPanel();
         outPanel.setBackground(Color.decode("#74b9ff"));
-        //outPanel.setBackground(new Color(255, 118, 117));
-        //outPanel.setBounds(268, 45, 746, 656);
-        outPanel.setBounds(248, 45, 1046, 656);
+        outPanel.setBounds(248 - 82, 45, 1046 - 650 + 82, 656);
         contentPane.add(outPanel);
         outPanel.setLayout(null);
 
         chatPanel = new JPanel();
-        chatPanel.setBounds(32, 0, 993, 550);
-        //chatPanel.setBackground(new Color(255, 118, 117));
+        chatPanel.setBounds(32, 0, 993 - 650 + 82, 550);
         chatPanel.setBackground(Color.decode("#74b9ff"));
         chatPanel.setLayout(null);
-        //outPanel.add(chatPanel);
 
         textArea = new JTextArea();
         textArea.setForeground(new Color(25, 42, 86));
         textArea.setBackground(new Color(255, 251, 251));
-        textArea.setBounds(32, 572, 865, 63);
+        textArea.setBounds(32, 572 , 865 - 650 + 60 + 82, 63);
         textArea.setFont(new Font("Arial", Font.BOLD, 17));
 
         textArea.addKeyListener(new KeyAdapter() {
@@ -190,7 +188,8 @@ public class ClientGUI extends JFrame {
             }
         });
 
-        sendButton = new JButton("Send");
+        sendButton = new JButton();
+        sendButton.setIcon(new ImageIcon(sendIcon));
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -222,24 +221,17 @@ public class ClientGUI extends JFrame {
             }
         });
 
-        sendButton.setBackground(new Color(25, 42, 86));
-        sendButton.setForeground(Color.WHITE);
-        sendButton.setFont(new Font("Arial", Font.BOLD, 14));
-        //sendButton.setBounds(607, 405, 88, 30);
-        sendButton.setBounds(907, 605, 118, 30);
+        sendButton.setBounds(907 - 650 + 60 + 82, 605, 118 - 60, 30);
 
-        fileButton = new JButton("Send File");
-        fileButton.setBackground(new Color(25, 42, 86));
-        fileButton.setForeground(Color.WHITE);
-        fileButton.setFont(new Font("Arial", Font.BOLD, 14));
-        //fileButton.setBounds(607, 370, 88, 30);
-        fileButton.setBounds(907, 570, 118, 30);
+        fileButton = new JButton();
+        fileButton.setIcon(new ImageIcon(sendfileIcon));
+        fileButton.setBounds(907 - 650 + 60 + 82, 570, 118 - 60, 30);
 
         fileButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setMultiSelectionEnabled(false);
-                fileChooser.setDialogTitle("Select file to send");
+                fileChooser.setDialogTitle("Select file to send!");
                 if (fileChooser.showOpenDialog(fileButton) == JFileChooser.APPROVE_OPTION) {
                     File file = fileChooser.getSelectedFile();
                     if (file.isFile()) {
@@ -315,7 +307,7 @@ public class ClientGUI extends JFrame {
         piece.setHorizontalAlignment(JLabel.CENTER);
         chats.get(index).setBound(chats.get(index).getBound() + piece.getHeight() + 10);
         if (chats.get(index).getBound() >= chatPanel.getPreferredSize().getHeight()) {
-            chatPanel.setPreferredSize(new Dimension(993, chats.get(index).getBound() + 40));
+            chatPanel.setPreferredSize(new Dimension(993 - 650, chats.get(index).getBound() + 40));
         }
         return piece;
     }
@@ -332,7 +324,7 @@ public class ClientGUI extends JFrame {
         }
         JLabel piece = new JLabel(msg);
         piece.setOpaque(true);
-        piece.setFont(new Font("Arial", Font.BOLD, 16));
+        piece.setFont(new Font("Arial", Font.BOLD, 14));
         piece.setSize(piece.getPreferredSize());
         piece.setBounds(13, bound, piece.getWidth() + 15, piece.getHeight() + 5);
         piece.setHorizontalAlignment(JLabel.CENTER);
@@ -340,7 +332,7 @@ public class ClientGUI extends JFrame {
         piece.setForeground(new Color(25, 42, 86));
         chats.get(index).setBound(chats.get(index).getBound() + piece.getHeight() + 10);
         if (chats.get(index).getBound() >= chatPanel.getPreferredSize().getHeight()) {
-            chats.get(index).getChat().setPreferredSize(new Dimension(993, chats.get(index).getBound() + 40));
+            chats.get(index).getChat().setPreferredSize(new Dimension(993 - 650, chats.get(index).getBound() + 40));
         }
         return piece;
     }
@@ -366,8 +358,8 @@ public class ClientGUI extends JFrame {
     public JPanel create() {
         JPanel chatPanel = new JPanel();
         // chatPanel.setBounds(32, 0, 793, 350);
-        chatPanel.setBounds(32, 0, 993, 550);
-        chatPanel.setPreferredSize(new Dimension(793, 350));
+        chatPanel.setBounds(32, 0, 993 - 650 + 82, 550);
+        chatPanel.setPreferredSize(new Dimension(793 - 650 + 82, 350));
         chatPanel.setBackground(new Color(255, 251, 251));
         chatPanel.setLayout(null);
         return chatPanel;
@@ -539,7 +531,7 @@ public class ClientGUI extends JFrame {
                                                 JScrollPane chatScrollPane = new JScrollPane(chatPanel,
                                                         ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                                                         ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-                                                chatScrollPane.setBounds(32, 0, 993, 559);
+                                                chatScrollPane.setBounds(32, 0, 993 - 650 + 82, 559);
                                                 outPanel.removeAll();
                                                 outPanel.add(chatScrollPane);
                                                 outPanel.add(fileButton);
@@ -560,7 +552,7 @@ public class ClientGUI extends JFrame {
                                                 JScrollPane chatScrollPane = new JScrollPane(chatPanel,
                                                         ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.
                                                         HORIZONTAL_SCROLLBAR_NEVER);
-                                                chatScrollPane.setBounds(32, 0, 993, 559);
+                                                chatScrollPane.setBounds(32, 0, 993 - 650 + 82, 559);
                                                 outPanel.add(chatScrollPane);
                                                 outPanel.add(textArea);
                                                 outPanel.add(fileButton);
@@ -738,7 +730,7 @@ class OnlineRenderer extends JPanel implements ListCellRenderer<String> {
     @Override
     public Component getListCellRendererComponent(JList<? extends String> list, String value, int index, boolean isSelected, boolean cellHasFocus) {
         lbName.setText(value);
-        lbName.setFont(new Font("Arial", Font.BOLD, 22));
+        lbName.setFont(new Font("Arial", Font.BOLD, 16));
         lbName.setOpaque(true);
         lbName.setForeground(new Color(25, 42, 86));
         lbName.setHorizontalAlignment(SwingConstants.CENTER);

@@ -51,7 +51,7 @@ public class ChooseGUI extends JFrame {
         scrollPane.setBounds(10, 32, 417, 369);
         contentPane.add(scrollPane);
 
-        JButton groupButton = new JButton("Create group chat");
+        JButton groupButton = new JButton("Create Group Chat");
         groupButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> s = (ArrayList<String>) list.getSelectedValuesList();
@@ -69,7 +69,6 @@ public class ChooseGUI extends JFrame {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-
                 }
             }
         });
@@ -91,7 +90,6 @@ class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<Str
         setForeground(list.getForeground());
         setSelected(isSelected);
         setEnabled(list.isEnabled());
-
         setText(value == null ? "" : value.toString());
 
         return this;
