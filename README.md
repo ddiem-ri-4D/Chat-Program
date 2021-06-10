@@ -1,3 +1,5 @@
+# Chat-Program
+
 1. Thông tin cá nhân: **20424013 - Phạm Nguyễn Mỹ Diễm - 20424013@student.hcmus.edu.vn**
 
 2. Hướng dẫn setup project.
