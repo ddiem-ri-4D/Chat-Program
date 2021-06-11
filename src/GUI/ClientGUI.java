@@ -160,8 +160,8 @@ public class ClientGUI extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     String msg = textArea.getText();
                     textArea.setText("");
-                    if (msg.length() > 100) {
-                        JOptionPane.showMessageDialog(null, "Should not exceed more than 100 characters.");
+                    if (msg.length() > 40) {
+                        JOptionPane.showMessageDialog(null, "Should not exceed more than 40 characters!");
                     } else if (!msg.isEmpty()) {
                         try {
                             Vector<String> s = new Vector<String>();
@@ -195,8 +195,8 @@ public class ClientGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String msg = textArea.getText();
                 textArea.setText("");
-                if (msg.length() > 100) {
-                    JOptionPane.showMessageDialog(null, "Should not exceed more than 100 characters.");
+                if (msg.length() > 40) {
+                    JOptionPane.showMessageDialog(null, "Should not exceed more than 40 characters!");
                 } else if (!msg.isEmpty()) {
                     try {
                         Vector<String> s = new Vector<String>();
@@ -307,7 +307,7 @@ public class ClientGUI extends JFrame {
         piece.setHorizontalAlignment(JLabel.CENTER);
         chats.get(index).setBound(chats.get(index).getBound() + piece.getHeight() + 10);
         if (chats.get(index).getBound() >= chatPanel.getPreferredSize().getHeight()) {
-            chatPanel.setPreferredSize(new Dimension(993 - 650, chats.get(index).getBound() + 40));
+            chatPanel.setPreferredSize(new Dimension(993 - 650 + 82, chats.get(index).getBound() + 40));
         }
         return piece;
     }
@@ -332,7 +332,7 @@ public class ClientGUI extends JFrame {
         piece.setForeground(new Color(25, 42, 86));
         chats.get(index).setBound(chats.get(index).getBound() + piece.getHeight() + 10);
         if (chats.get(index).getBound() >= chatPanel.getPreferredSize().getHeight()) {
-            chats.get(index).getChat().setPreferredSize(new Dimension(993 - 650, chats.get(index).getBound() + 40));
+            chats.get(index).getChat().setPreferredSize(new Dimension(993 - 650 + 82, chats.get(index).getBound() + 40));
         }
         return piece;
     }
@@ -522,7 +522,7 @@ public class ClientGUI extends JFrame {
                             list.addListSelectionListener(new ListSelectionListener() {
                                 public void valueChanged(ListSelectionEvent e) {
                                     if (!e.getValueIsAdjusting()) {
-                                        chatPanel.setBackground(new Color(255, 250, 205));
+                                        chatPanel.setBackground(Color.white);
                                         if (previous == null) {
                                             previous = list.getSelectedValue();
                                             if ((getPanel(previous) != null)) {

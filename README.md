@@ -4,7 +4,7 @@
 
 2. Hướng dẫn setup project.
 
-- Open Project:
+- Run Project:
 
   > Cách 1: Vào thư mục **Source** &#8594; Open Folder as IntelliJ IDEA Project.
 
@@ -16,9 +16,9 @@
 
   > Nhưng vẫn có thể chạy từ phiên bản Java 11 LTS trở lên nếu đã download.
 
-  > Hệ điều hành: Ubuntu 20.04 LTS, Window 10 (ở mọi phiên bản).
+  > Hệ điều hành: Ubuntu 20.04 LTS, Window 10 (ở mọi phiên bản), MacOS chưa thử nghiệm.
 
-  > IDE: khuyến thích IntelliJ.
+  > IDE: Khuyến thích IntelliJ.
 
 3. Liệt kê các chức năng của project:
 
@@ -28,4 +28,3 @@
 - Chat cùng lúc với nhiều người (mở nhiều cửa sổ).
 - Chat group.
 - Gửi file và nhận file.
-- Gửi hình và nhận hình.
