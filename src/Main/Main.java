@@ -1,8 +1,6 @@
 package Main;
 
-import GUI.ClientGUI;
 import GUI.LoginGUI;
-import GUI.RegisterGUI;
 import Handler.Server;
 
 import java.io.IOException;
