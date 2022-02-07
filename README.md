@@ -6,11 +6,11 @@
 
 ## 1. Thông tin cá nhân:
 
-**MSSV**: 20424013
+**MSSV**: ******
 
 **Họ và tên**: Phạm Nguyễn Mỹ Diễm
 
-**Email**: 20424013@student.hcmus.edu.vn
+**Email**: ******@student.hcmus.edu.vn
 
 ## 2. Hướng dẫn setup project.
 
